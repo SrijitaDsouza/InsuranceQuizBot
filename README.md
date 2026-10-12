@@ -4,7 +4,7 @@ A Gradio chat app that generates multiple-choice quizzes on Indian insurance top
 
 ## Features
 
-- **Pre-loaded subjects:** choose one or more of the IC study PDFs (IC-01, IC-02, IC-11, IC-14, IC-38, IC-67, IC-72, IC-74, IC-85).
+- **Pre-loaded subjects:** choose one or more of the IC study PDFs (IC-01, IC-02, IC-11, IC-14, IC-38, IC-67, IC-72, IC-74, IC-85). For the demo, only IC-01 is pre-loaded.
 - **Your own material:** upload PDF/TXT/MD files and/or paste text to be quizzed on it.
 - **Focus area:** type a free-text area (e.g. "exclusions"). If subjects are selected and random is unticked, questions come only from those subjects, focused on that area where possible.
 - **Random questions:** optionally include general insurance questions generated from the model's knowledge.
@@ -14,6 +14,7 @@ A Gradio chat app that generates multiple-choice quizzes on Indian insurance top
 
 - Python 3.10+
 - A Google Gemini API key
+- Load other IC series pdfs and update the list in the code.
 
 ## Setup
 
@@ -29,7 +30,7 @@ GOOGLE_API_KEY=your_gemini_api_key_here
 
 ## Configure file paths
 
-At the top of `mcq_quiz_app_v3.py`, update these to match your machine:
+At the top of `app.py`, update these to match your machine:
 
 ```python
 DEFAULT_PDF = r"<path-to>\IC01 Principles of Insurance.pdf"
@@ -41,7 +42,7 @@ The other subject PDFs are read from the same folder as `DEFAULT_PDF`, using the
 ## Run
 
 ```bash
-python mcq_quiz_app_v3.py
+python app.py
 ```
 
 Then open the local URL shown in the terminal (usually http://127.0.0.1:7860).
@@ -64,4 +65,3 @@ Then open the local URL shown in the terminal (usually http://127.0.0.1:7860).
 ## Notes
 
 - The "random questions" option uses the model's general knowledge; it does not perform a live web search.
-- The study PDFs are copyrighted course material. Make sure you are allowed to share them before making a repository public.
